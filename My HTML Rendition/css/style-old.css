@@ -1,0 +1,136 @@
+/***********************************************
+
+
+Header is now fully responsive
+Have to clamp main container and h2 (see notion clamp reference)
+    Not sure what this will do when the res is over 1920...
+(Also have to do <p> etc.)
+
+
+*************************************************/
+
+
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    --lgeh1-font-size: clamp(28px, 20.716px + 0.796vw, 36px);
+    --medh1-font-size: clamp(26px, 16.739px + 1.45vw, 30px);
+    --smlh1-font-size: clamp(16px, 5.969px + 3.135vw, 26px);
+}
+/*********** LARGE - 916+ designing for 1280-1536px **********/
+/*** HEADER STYLES ***/
+
+header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.vert-align-left {
+    position: relative;
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: var(--lgeh1-font-size);
+}
+
+.logos img {
+    height: clamp(104px, 54.85px + 5.37vw, 158px);
+}
+
+header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight:500;
+    font-size: clamp(26px, 20.537px + 0.597vw, 32px);
+    color: #00629B;
+    position: absolute;
+    top: calc(var(--lgeh1-font-size)*2);
+}
+
+.spacer {
+    margin-top: 26px;
+}
+
+/*** MAIN STYLES ***/
+
+main .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 15% 0 15%; /* max size - need to clamp? */
+}
+
+main h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight:500;
+    font-size: clamp(26px, 20.537px + 0.597vw, 32px);
+    color: #00629B;
+}
+
+/*********** MEDIUM - 640-915px designing for 760-900px ************/
+
+@media (max-width: 915px) {
+    /*** HEADER STYLES ***/
+    header .container {
+        flex-direction: column-reverse;
+    }
+    h1 {
+        font-size: var(--medh1-font-size);
+    }
+    .logos img {
+        height: 104px; /* static size */
+    }
+
+    header h2 {
+        font-size: clamp(22px, 12.739px + 1.449vw, 26px);
+        top: calc(var(--medh1-font-size)*1.5);
+    }
+
+    .spacer {
+        margin-top: clamp(22px, 12.739px + 1.449vw, 26px);
+    }
+
+    /*** MAIN STYLES ***/
+    main .container {
+        margin: 0 5% 0 5%; /* possibly clamp? */
+    }
+    main h2 {
+        font-size: (clamp(22px, 12.739px + 1.449vw, 26px));
+    }
+}
+
+
+/*********** SMALL - 320-639 designing for 360-414px ***********/
+
+@media (max-width: 639px) {
+    /*** HEADER STYLES ***/
+    header .container {
+        flex-direction: column-reverse;
+    }
+    h1 {
+        font-size: var(--smlh1-font-size);
+    }
+    .logos img {
+        height: clamp(78px, 51.918px + 8.15vw, 104px);
+    }
+
+    header h2 {
+        font-size: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
+        top: calc(var(--smlh1-font-size)*1.5);
+    }
+
+    .spacer {
+        margin-top: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
+    }
+
+    /*** MAIN STYLES ***/
+    main .container {
+        margin: 0 0 0 0;
+    }
+
+    main h2 {
+        font-size: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
+    }
+}

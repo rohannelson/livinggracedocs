@@ -1,0 +1,96 @@
+* {
+    font-family: 'Raleway', sans-serif;
+}
+/*********** LARGER SCREENS *********/
+/*** HEADER STYLES ***/
+header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; 
+    margin: 0 10% 0 10%;
+}
+h1 {
+    font-weight: 900;
+    font-size: 2.2vw;
+}
+.logos img {
+    height: 8vw;
+}
+/*** BODY STYLES ***/
+h2 {
+    font-weight: 500;
+    font-size: 2vw;
+}
+body .container {
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+    margin: 0 15% 0 15%;
+}
+
+/********** MEDIUM SCREENS **********/
+@media (max-width: 1200px) {
+    /*** HEADER STYLES ***/
+    header .container {
+        margin: 0 5% 0 5%;
+    }
+    h1 {
+        font-size: 3vw;
+    }
+    .logos img {
+        height: 9vw;
+    }
+
+    /*** BODY STYLES ***/
+    body .container {
+        margin: 0 5% 0 5%;
+    }
+    h2 {
+        font-size: 3vw;
+    }
+}
+
+/********** SMALLER SCREENS **********/
+@media (max-width: 800px) {
+    /*** HEADER STYLES ***/
+    header .container {
+        margin: 0 0 0 0;
+    }
+    h1 {
+        font-size: 3.5vw;
+    }
+    .logos img {
+        height: 10vw;
+    }
+
+    /*** BODY STYLES ***/
+    body .container {
+        margin: 0 0 0 0;
+    }
+    h2 {
+        font-size: 3vw;
+    }
+}
+/********* EXTRA SMALL SCREENS ********/
+@media (max-width: 400px) {
+    /*** HEADER STYLES ***/
+    header .container {
+        margin: 0 0 0 0;
+    }
+    h1 {
+        font-size: 5vw;
+    }
+    .logos img {
+        height: 20vw;
+    }
+
+    /*** BODY STYLES ***/
+    body .container {
+        margin: 0 0 0 0;
+        flex-direction: column-reverse;
+    }
+    h2 {
+        font-size: 5vw;
+    }
+}

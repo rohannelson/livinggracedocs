@@ -15,6 +15,7 @@ Notes about where I'm up to here
     --smlh1-font-size: clamp(16px, 5.969px + 3.135vw, 26px);
     --header-logo-height: clamp(104px, 54.85px + 5.37vw, 158px);
 }
+
 /*********** LARGE - 916+ designing for 1280-1536px **********/
 /*** HEADER STYLES ***/
 
@@ -39,7 +40,8 @@ h1 {
     font-size: var(--lgeh1-font-size);
 }
 
-div .logos, .logos img {
+div .logos,
+.logos img {
     height: var(--header-logo-height);
     grid-column: 2/3;
     grid-row: 1;
@@ -48,7 +50,7 @@ div .logos, .logos img {
 
 header h2 {
     font-family: 'Montserrat', sans-serif;
-    font-weight:500;
+    font-weight: 500;
     font-size: clamp(26px, 20.537px + 0.597vw, 32px);
     color: #00629B;
     grid-row: 2;
@@ -60,43 +62,38 @@ header h2 {
 main .wrapper {
     display: flex;
     flex-direction: column;
-    margin: 0 15% 0 15%; /* max size - need to clamp? */
+    margin: 0 15% 0 15%;
+    /* max size - need to clamp? */
 }
+
 /* DOCUMENT CONTROL TABLE*/
 
-div .doc-control {
+.doc-control {
     display: inline-grid;
     grid-template-columns: 25% 75%;
     grid-template-rows: auto;
     margin: 40px 0px 30px 0px;
+    border-bottom: 1px black solid;
+    border-right: 1px black solid;
 }
 
-.doc-control div {
+.doc-control dt,
+.doc-control dd {
     padding: 5px;
+    border-left: 1px black solid;
+    border-top: 1px black solid;
 }
 
-#ctrl1-1, #ctrl2-1, #ctrl3-1, #ctrl4-1, #ctrl5-1, #ctrl6-1 {
+.doc-control dt {
     background-color: #51534a;
     color: #fff;
-    border-left: 1px solid black;
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-}
-
-#ctrl1-2, #ctrl2-2, #ctrl3-2, #ctrl4-2, #ctrl5-2, #ctrl6-2 {
-    border-right: 1px solid black;
-    border-top: 1px solid black;
-}
-
-#ctrl6-1, #ctrl6-2 {
-    border-bottom: 1px solid black;
 }
 
 /* BODY */
 
 main h2 {
     font-family: 'Montserrat', sans-serif;
-    font-weight:500;
+    font-weight: 500;
     font-size: clamp(26px, 20.537px + 0.597vw, 32px);
     color: #00629B;
 }
@@ -104,6 +101,7 @@ main h2 {
 /*********** MEDIUM - 640-915px designing for 760-900px ************/
 
 @media (max-width: 915px) {
+
     /*** HEADER STYLES ***/
     h1 {
         grid-column: 1/3;
@@ -112,8 +110,11 @@ main h2 {
         align-self: center;
         margin-top: 5px;
     }
-    div .logos, .logos img {
-        height: 104px; /* static size */
+
+    div .logos,
+    .logos img {
+        height: 104px;
+        /* static size */
         grid-column: 1/3;
         margin-left: auto;
         margin-right: auto;
@@ -125,10 +126,13 @@ main h2 {
         margin-top: 3px;
         margin-bottom: 12px;
     }
+
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 0 5% 0 5%; /* possibly clamp? */
+        margin: 0 5% 0 5%;
+        /* possibly clamp? */
     }
+
     main h2 {
         font-size: clamp(22px, 12.739px + 1.449vw, 26px);
     }
@@ -138,17 +142,21 @@ main h2 {
 /*********** SMALL - 320-639 designing for 360-414px ***********/
 
 @media (max-width: 639px) {
+
     /*** HEADER STYLES ***/
     h1 {
         font-size: var(--smlh1-font-size);
     }
-    div .logos, .logos img {
+
+    div .logos,
+    .logos img {
         height: clamp(78px, 51.918px + 8.15vw, 104px);
     }
 
     header h2 {
         font-size: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
     }
+
     /*** MAIN STYLES ***/
     main .wrapper {
         margin: 0 0 0 0;
@@ -157,4 +165,12 @@ main h2 {
     main h2 {
         font-size: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
     }
+
+    /* DOC CONTROL TABLE */
+    .doc-control {
+        grid-template-columns: 100%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
 }

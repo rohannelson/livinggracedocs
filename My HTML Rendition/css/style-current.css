@@ -1,6 +1,9 @@
 /***********************************************
 
 Need to work on text formatting and try implementing an actual policy doc.
+Need to do styling for lists and nested lists
+Need to check responsiveness.
+Would be keen to learn how to do this sort of thing with an SSG that makes it really easy for end users.
 
 *************************************************/
 
@@ -78,7 +81,7 @@ main h2 {
     text-transform: uppercase;
 }
 
-main p {
+main h2~p {
     line-height: 150%;
     margin-bottom: 15px;
 }
@@ -89,7 +92,7 @@ main h3 {
     text-transform: uppercase;
 }
 
-main .subp {
+main h3~p {
     margin-left: 20px;
 }
 
@@ -98,6 +101,8 @@ main h4 {
     color: #702082;
     margin-left: 20px;
 }
+
+main h4~p {}
 
 /* DOCUMENT CONTROL TABLE*/
 

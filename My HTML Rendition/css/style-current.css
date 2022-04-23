@@ -104,6 +104,22 @@ main h4 {
 
 main h4~p {}
 
+main h4~ul {
+    margin-left: 40px;
+}
+
+main h4~ul>li {
+    list-style: none;
+}
+
+main h4~ul>ul {
+    margin-left: 20px;
+}
+
+main li {
+    padding-bottom: 1em;
+}
+
 /* DOCUMENT CONTROL TABLE*/
 
 .doc-control {

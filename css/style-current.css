@@ -16,7 +16,8 @@ Would be keen to learn how to do this sort of thing with an SSG that makes it re
     box-sizing: border-box;
     table-layout: auto;
     font-family: 'Source Sans Pro', sans-serif;
-    --lgeh1-font-size: clamp(28px, 20.716px + 0.796vw, 36px);
+    color: #51534a;
+    --lgeh1-font-size: clamp(28px, 20.716px + 0.796vw, 32px);
     --medh1-font-size: clamp(26px, 16.739px + 1.45vw, 30px);
     --smlh1-font-size: clamp(16px, 5.969px + 3.135vw, 26px);
     --header-logo-height: clamp(104px, 54.85px + 5.37vw, 158px);
@@ -54,22 +55,27 @@ div .logos,
     align-self: center;
 }
 
-header h2 {
+/*** MAIN STYLES ***/
+
+main .wrapper {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 2vw;
+    max-width: 810px;
+    background-color: #faf9f5;
+    /* max size - need to clamp? */
+}
+
+main .title {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
     font-size: clamp(26px, 20.537px + 0.597vw, 32px);
     color: #00629B;
     grid-row: 2;
     margin-bottom: 10px;
-}
-
-/*** MAIN STYLES ***/
-
-main .wrapper {
-    display: flex;
-    flex-direction: column;
-    margin: 0 15% 0 15%;
-    /* max size - need to clamp? */
 }
 
 main h2 {
@@ -126,7 +132,7 @@ main li {
     display: inline-grid;
     grid-template-columns: 25% 75%;
     grid-template-rows: auto;
-    margin: 40px 0px 30px 0px;
+    margin-bottom: 30px;
     border-bottom: 1px black solid;
     border-right: 1px black solid;
 }
@@ -156,10 +162,6 @@ th,
 td {
     border: 1px solid black;
     padding: 5px;
-}
-
-table:last-of-type {
-    margin-bottom: 50px;
 }
 
 /*********** MEDIUM - 640-915px designing for 760-900px ************/
@@ -193,18 +195,12 @@ table:last-of-type {
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 0 5% 0 5%;
+        margin: 15px 5% 0 5%;
         /* possibly clamp? */
     }
 
     main h2 {
         font-size: clamp(22px, 12.739px + 1.449vw, 26px);
-    }
-
-    /* DOCUMENT CONTROL TABLE*/
-
-    .doc-control {
-        margin-top: 35px;
     }
 }
 
@@ -229,7 +225,7 @@ table:last-of-type {
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 0 5%;
+        margin: 10px 5% 0 5%;
     }
 
     main h2 {
@@ -239,7 +235,6 @@ table:last-of-type {
     /* DOC CONTROL TABLE */
     .doc-control {
         grid-template-columns: 100%;
-        margin-top: 25px;
     }
 
 }

@@ -226,6 +226,10 @@ td {
         font-size: 6px;
     }
 
+    header.scrolled {
+        font-size: 4px;
+    }
+
     #header-trigger {
         height: 100px;
     }

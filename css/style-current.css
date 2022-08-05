@@ -16,51 +16,71 @@ Would be keen to learn how to do this sort of thing with an SSG that makes it re
     box-sizing: border-box;
     table-layout: auto;
     font-family: 'Source Sans Pro', sans-serif;
-    --lgeh1-font-size: clamp(28px, 20.716px + 0.796vw, 36px);
+    color: #51534a;
+    --lgeh1-font-size: clamp(28px, 20.716px + 0.796vw, 32px);
     --medh1-font-size: clamp(26px, 16.739px + 1.45vw, 30px);
     --smlh1-font-size: clamp(16px, 5.969px + 3.135vw, 26px);
-    --header-logo-height: clamp(104px, 54.85px + 5.37vw, 158px);
 }
 
 /*********** LARGE - 916+ designing for 1280-1536px **********/
 /*** HEADER STYLES ***/
+html {
+    font-size: 10px;
+}
 
-header .wrapper {
+body {
+    margin: 0px;
+}
+
+header {
+    margin: 0px;
+    font-size: 10px;
+    height: 15em;
+    background-color: #51534a;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    transition: 0.25s;
+    border-bottom: 2px solid #51534a;
+}
+
+header.scrolled {
+    font-size: 5px;
+    background-color: #51534aff
+}
+
+nav {
     display: flex;
-    flex-direction: row;
     justify-content: center;
+    padding-top: 1em;
 }
 
-header .container {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: auto;
+img {
+    height: 9em;
+    margin: 0px 0.4em;
 }
 
-h1 {
-    grid-column: 1/2;
-    grid-row: 1;
-    align-self: center;
+header div {
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 3.5em;
+    font-weight: 600;
     font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    font-size: var(--lgeh1-font-size);
 }
 
-div .logos,
-.logos img {
-    height: var(--header-logo-height);
-    grid-column: 2/3;
-    grid-row: 1;
-    align-self: center;
+main {
+    font-size: 1.6rem;
 }
 
-header h2 {
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
-    font-size: clamp(26px, 20.537px + 0.597vw, 32px);
-    color: #00629B;
-    grid-row: 2;
-    margin-bottom: 10px;
+#header-trigger {
+    height: 140px;
+    transition: 0.25s;
+}
+
+div.scrolled {
+    height: 130px;
 }
 
 /*** MAIN STYLES ***/
@@ -68,8 +88,22 @@ header h2 {
 main .wrapper {
     display: flex;
     flex-direction: column;
-    margin: 0 15% 0 15%;
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding: 2vw;
+    max-width: 810px;
+    background-color: #faf9f5;
     /* max size - need to clamp? */
+}
+
+h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    font-size: clamp(26px, 20.537px + 0.597vw, 32px);
+    color: #00629B;
+    grid-row: 2;
+    margin-bottom: 10px;
 }
 
 main h2 {
@@ -126,7 +160,7 @@ main li {
     display: inline-grid;
     grid-template-columns: 25% 75%;
     grid-template-rows: auto;
-    margin: 40px 0px 30px 0px;
+    margin-bottom: 30px;
     border-bottom: 1px black solid;
     border-right: 1px black solid;
 }
@@ -158,53 +192,27 @@ td {
     padding: 5px;
 }
 
-table:last-of-type {
-    margin-bottom: 50px;
-}
-
 /*********** MEDIUM - 640-915px designing for 760-900px ************/
 
 @media (max-width: 915px) {
 
     /*** HEADER STYLES ***/
-    h1 {
-        grid-column: 1/3;
-        grid-row: 2/3;
-        font-size: var(--medh1-font-size);
-        align-self: center;
-        margin-top: 5px;
+    header {
+        font-size: 8px;
     }
 
-    div .logos,
-    .logos img {
-        height: 104px;
-        /* static size */
-        grid-column: 1/3;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    header h2 {
-        font-size: clamp(22px, 12.739px + 1.449vw, 26px);
-        grid-row: 3/4;
-        margin-top: 3px;
-        margin-bottom: 12px;
+    #header-trigger {
+        height: 120px;
     }
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 0 5% 0 5%;
+        margin: 15px 5% 0 5%;
         /* possibly clamp? */
     }
 
     main h2 {
         font-size: clamp(22px, 12.739px + 1.449vw, 26px);
-    }
-
-    /* DOCUMENT CONTROL TABLE*/
-
-    .doc-control {
-        margin-top: 35px;
     }
 }
 
@@ -214,22 +222,21 @@ table:last-of-type {
 @media (max-width: 639px) {
 
     /*** HEADER STYLES ***/
-    h1 {
-        font-size: var(--smlh1-font-size);
+    header {
+        font-size: 6px;
     }
 
-    div .logos,
-    .logos img {
-        height: clamp(78px, 51.918px + 8.15vw, 104px);
+    header.scrolled {
+        font-size: 4px;
     }
 
-    header h2 {
-        font-size: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
+    #header-trigger {
+        height: 100px;
     }
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 0 5%;
+        margin: 10px 5% 0 5%;
     }
 
     main h2 {
@@ -239,7 +246,6 @@ table:last-of-type {
     /* DOC CONTROL TABLE */
     .doc-control {
         grid-template-columns: 100%;
-        margin-top: 25px;
     }
 
 }

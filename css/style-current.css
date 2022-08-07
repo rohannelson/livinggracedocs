@@ -17,9 +17,6 @@ Would be keen to learn how to do this sort of thing with an SSG that makes it re
     table-layout: auto;
     font-family: 'Source Sans Pro', sans-serif;
     color: #51534a;
-    --lgeh1-font-size: clamp(28px, 20.716px + 0.796vw, 32px);
-    --medh1-font-size: clamp(26px, 16.739px + 1.45vw, 30px);
-    --smlh1-font-size: clamp(16px, 5.969px + 3.135vw, 26px);
 }
 
 /*********** LARGE - 916+ designing for 1280-1536px **********/
@@ -28,12 +25,7 @@ html {
     font-size: 10px;
 }
 
-body {
-    margin: 0px;
-}
-
 header {
-    margin: 0px;
     font-size: 10px;
     height: 15em;
     background-color: #51534a;
@@ -66,16 +58,12 @@ header div {
     justify-content: center;
     color: white;
     font-size: 3.5em;
-    font-weight: 600;
+    font-weight: 700;
     font-family: 'Montserrat', sans-serif;
 }
 
-main {
-    font-size: 1.6rem;
-}
-
 #header-trigger {
-    height: 140px;
+    height: 150px;
     transition: 0.25s;
 }
 
@@ -85,10 +73,17 @@ div.scrolled {
 
 /*** MAIN STYLES ***/
 
+main {
+    font-size: 1.6em;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
 main .wrapper {
     display: flex;
     flex-direction: column;
-    margin: auto;
     margin-top: 20px;
     margin-bottom: 40px;
     padding: 2vw;
@@ -97,11 +92,11 @@ main .wrapper {
     /* max size - need to clamp? */
 }
 
-h1 {
+.title {
     font-family: 'Montserrat', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-size: clamp(26px, 20.537px + 0.597vw, 32px);
-    color: #00629B;
+    color: #702082;
     grid-row: 2;
     margin-bottom: 10px;
 }
@@ -131,7 +126,7 @@ main h3~p {
 }
 
 main h4 {
-    /* Always nest in an order list */
+    /* Always nest in an ordered list */
     color: #702082;
     margin-left: 20px;
 }
@@ -207,9 +202,9 @@ td {
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 15px 5% 0 5%;
-        /* possibly clamp? */
+        margin: 15px 5% 10px 5%;
     }
+
 
     main h2 {
         font-size: clamp(22px, 12.739px + 1.449vw, 26px);
@@ -236,11 +231,11 @@ td {
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 10px 5% 0 5%;
+        margin: 10px 5% 10px 5%;
     }
 
     main h2 {
-        font-size: clamp(14px, 5.974921630093px + 2.507836990596vw, 22px);
+        font-size: clamp(20px, 5.974921630093px + 2.507836990596vw, 22px);
     }
 
     /* DOC CONTROL TABLE */

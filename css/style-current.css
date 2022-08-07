@@ -1,8 +1,6 @@
 /***********************************************
 
-Need to work on text formatting and try implementing an actual policy doc.
-Need to do styling for lists and nested lists
-Need to check responsiveness.
+Formatting to-dos
 Would be keen to learn how to do this sort of thing with an SSG that makes it really easy for end users.
 
 *************************************************/
@@ -74,7 +72,7 @@ div.scrolled {
 /*** MAIN STYLES ***/
 
 main {
-    font-size: 1.6em;
+    font-size: 1.6rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -87,9 +85,12 @@ main .wrapper {
     margin-top: 20px;
     margin-bottom: 40px;
     padding: 2vw;
-    max-width: 810px;
+    max-width: 775px;
     background-color: #faf9f5;
-    /* max size - need to clamp? */
+    flex-basis: 60vh;
+    min-width: min(90vw, 775px);
+    flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .title {
@@ -98,7 +99,7 @@ main .wrapper {
     font-size: clamp(26px, 20.537px + 0.597vw, 32px);
     color: #702082;
     grid-row: 2;
-    margin-bottom: 10px;
+    margin-bottom: 2rem;
 }
 
 main h2 {
@@ -106,8 +107,9 @@ main h2 {
     font-weight: 500;
     font-size: clamp(26px, 20.537px + 0.597vw, 32px);
     color: #702082;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-transform: uppercase;
+    margin-top: 1.8rem;
 }
 
 main h2~p {
@@ -119,6 +121,8 @@ main h3 {
     color: #00629B;
     margin-left: 20px;
     text-transform: uppercase;
+    margin-top: 1.4rem;
+    margin-bottom: 0.4rem;
 }
 
 main h3~p {
@@ -129,6 +133,8 @@ main h4 {
     /* Always nest in an ordered list */
     color: #702082;
     margin-left: 20px;
+    margin-top: 1.2rem;
+    margin-bottom: 0.3rem;
 }
 
 main h4~p {}
@@ -146,7 +152,7 @@ main h4~ul>ul {
 }
 
 main li {
-    padding-bottom: 1em;
+    padding-bottom: 1rem;
 }
 
 /* DOCUMENT CONTROL TABLE*/
@@ -155,7 +161,7 @@ main li {
     display: inline-grid;
     grid-template-columns: 25% 75%;
     grid-template-rows: auto;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
     border-bottom: 1px black solid;
     border-right: 1px black solid;
 }
@@ -202,7 +208,8 @@ td {
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 15px 5% 10px 5%;
+        margin: 15px 5% 20px 5%;
+        padding: 3vw;
     }
 
 
@@ -231,7 +238,8 @@ td {
 
     /*** MAIN STYLES ***/
     main .wrapper {
-        margin: 10px 5% 10px 5%;
+        margin: 10px 4% 20px 4%;
+        padding: 4vw;
     }
 
     main h2 {

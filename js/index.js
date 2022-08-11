@@ -24,5 +24,13 @@ const obsCallback = (entries) => {
 headerObserver = new IntersectionObserver(obsCallback, options);
 headerObserver.observe(document.querySelector('#header-trigger'));
 
-//The target must be a descendant of the root element - for some reason the header doesn't seem to count as the descendant of body
+//The target must be a descendant of the root element - for some reason the header doesn't seem to count as the descendant of body (position: fixed doesn't get observed or something)
 //You can use a placeholder element at the top of the page to detect when you're at the top or not.
+
+const toc = () => {
+    const headings = document.querySelectorAll("h2, h3, h4")
+    headings.forEach(heading => {
+        console.log(heading.nodeName)
+        })
+}
+toc()

@@ -21,6 +21,7 @@ Would be keen to learn how to do this sort of thing with an SSG that makes it re
 /*** HEADER STYLES ***/
 html {
     font-size: 10px;
+    scroll-padding-top: 60px;
 }
 
 header {
@@ -67,6 +68,59 @@ header div {
 
 div.scrolled {
     height: 130px;
+}
+
+/*** SIDEBAR STYLES***/
+
+nav#sidebar {
+    position: fixed;
+    top: 150px;
+    left: 0px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-size: 1.6rem;
+    transition: 0.25s;
+    background-color: #51534a;
+    border-top: #fff solid 1px;
+}
+
+nav#sidebar.scrolled {
+    top: 80px;
+}
+
+nav#sidebar ul {
+    padding: 0vw 1.5vw;
+    list-style: none;
+    padding-bottom: 1.5vw;
+}
+
+nav#sidebar ul li,
+nav#sidebar ul a {
+    color: #f2f2f2;
+}
+
+nav#sidebar .H1 {
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+nav#sidebar a:first-of-type {
+    text-decoration: none;
+}
+
+nav#sidebar .H2 {
+    font-weight: 700;
+}
+
+nav#sidebar .H3 {
+    padding-left: 1.5vw
+}
+
+nav#sidebar .H4 {
+    padding-left: 3vw;
 }
 
 /*** MAIN STYLES ***/
@@ -222,6 +276,10 @@ td {
 /*********** SMALL - 320-639 designing for 360-414px ***********/
 
 @media (max-width: 639px) {
+
+    html {
+        scroll-padding-top: 45px;
+    }
 
     /*** HEADER STYLES ***/
     header {

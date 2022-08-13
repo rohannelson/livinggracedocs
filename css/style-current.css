@@ -17,30 +17,33 @@ Would be keen to learn how to do this sort of thing with an SSG that makes it re
     color: #51534a;
 }
 
-/*********** LARGE - 916+ designing for 1280-1536px **********/
-/*** HEADER STYLES ***/
-html {
-    font-size: 10px;
+:root {
+    --header-height: 15em;
+    --unscrolled-font-size: 10px;
+    --scrolled-font-size: 5px;
+    --sidebar-width: max(20%, 200px);
     scroll-padding-top: 60px;
+    font-size: 10px;
 }
 
+/*********** LARGE - 916+ designing for 1280-1536px **********/
+/*** HEADER STYLES ***/
+
 header {
-    font-size: 10px;
-    height: 15em;
+    font-size: var(--responsive-font-size);
+    height: var(--header-height);
     background-color: #51534a;
     width: 100%;
     position: fixed;
     top: 0;
     transition: 0.25s;
-    border-bottom: 2px solid #51534a;
 }
 
 header.scrolled {
-    font-size: 5px;
-    background-color: #51534aff
+    font-size: var(--scrolled-font-size);
 }
 
-nav {
+header nav {
     display: flex;
     justify-content: center;
     padding-top: 1em;
@@ -72,47 +75,101 @@ div.scrolled {
 
 /*** SIDEBAR STYLES***/
 
-nav#sidebar button {
-    width: 75px;
+#sidebar-button {
+    width: 50px;
+    height: 50px;
+    position: fixed;
+    font-size: var(--responsive-font-size);
+    left: var(--sidebar-width);
+    top: var(--header-height);
+    transition: 0.25s;
+    border-radius: 0 10px 10px 0;
+    border: white solid 1px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
-nav#sidebar.active {
-    left: min(-200px,-20%);
+#sidebar-button.scrolled {
+    font-size: var(--scrolled-font-size);
 }
-button.active {
-    position: fixed;
-    top: 150px;
+
+#sidebar-button div {
+    background-color: #51534a;
+    height: 5px;
+    transition: .4s;
+}
+
+#sidebar-button.hamburger div {
+    width: 35px;
+    margin: 3px 0;
+    border-radius: 10px;
+}
+
+#sidebar-button div.arrow {
+    height: 4px;
+}
+
+#sidebar-button.arrow div:nth-of-type(1) {
+    width: 19px;
+    border-radius: 0 10px 10px 0;
+    transform: rotate(-45deg);
+    margin: 6px 20px 0 0;
+}
+
+#sidebar-button.arrow div:nth-of-type(2) {
+    width: 34px;
+    margin: 2px 3px 2px 0;
+    border-radius: 10px;
+}
+
+#sidebar-button.arrow div:nth-of-type(3) {
+    width: 19px;
+    border-radius: 0 10px 10px 0;
+    transform: rotate(45deg);
+    margin: 0 20px 6px 0;
+}
+
+#sidebar-button.active {
     left: 0px;
 }
+
 
 nav#sidebar {
     position: fixed;
-    top: 150px;
+    font-size: var(--responsive-font-size);
+    top: var(--header-height);
     left: 0px;
     display: flex;
     flex-direction: column;
-    width: max(20%,200px);
+    width: var(--sidebar-width);
     flex-grow: 1;
     flex-shrink: 1;
-    font-size: 1.6rem;
     transition: 0.25s;
-    background-color: #51534a;
+    background-color: #702082;
     border-top: #fff solid 1px;
+    padding-top: 0px;
 }
 
 nav#sidebar.scrolled {
-    top: 80px;
+    font-size: var(--scrolled-font-size)
+}
+
+nav#sidebar.active {
+    left: min(-200px, -20%);
 }
 
 nav#sidebar ul {
     padding: 0vw 1.5vw;
     list-style: none;
     padding-bottom: 1.5vw;
+    font-size: 1.6rem;
 }
 
 nav#sidebar ul li,
 nav#sidebar ul a {
-    color: #f2f2f2;
+    color: #fff;
 }
 
 nav#sidebar .H1 {
@@ -265,8 +322,12 @@ td {
 @media (max-width: 915px) {
 
     /*** HEADER STYLES ***/
+    :root {
+        --unscrolled-font-size: 8px;
+    }
+
     header {
-        font-size: 8px;
+        font-size: var(--unscrolled-font-size);
     }
 
     #header-trigger {
@@ -274,6 +335,14 @@ td {
     }
 
     /*** MAIN STYLES ***/
+    #sidebar-button {
+        font-size: var(--unscrolled-font-size);
+    }
+
+    nav#sidebar {
+        font-size: var(--unscrolled-font-size);
+    }
+
     main .wrapper {
         margin: 15px 5% 20px 5%;
         padding: 3vw;
@@ -290,17 +359,22 @@ td {
 
 @media (max-width: 639px) {
 
-    html {
+    :root {
+        --unscrolled-font-size: 6px;
+        --scrolled-font-size: 4px;
         scroll-padding-top: 45px;
     }
 
     /*** HEADER STYLES ***/
-    header {
-        font-size: 6px;
+
+    header,
+    nav#sidebar {
+        font-size: var(--unscrolled-font-size);
     }
 
-    header.scrolled {
-        font-size: 4px;
+    header.scrolled,
+    nav#sidebar.scrolled {
+        font-size: var(--scrolled-font-size);
     }
 
     #header-trigger {
@@ -308,6 +382,14 @@ td {
     }
 
     /*** MAIN STYLES ***/
+    #sidebar-button {
+        font-size: var(--unscrolled-font-size);
+    }
+
+    #sidebar-button.scrolled {
+        font-size: var(--scrolled-font-size);
+    }
+
     main .wrapper {
         margin: 10px 4% 20px 4%;
         padding: 4vw;

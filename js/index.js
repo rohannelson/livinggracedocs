@@ -2,6 +2,7 @@ const headerNav = document.querySelector("header");
 const headerTrigger = document.querySelector("#header-trigger");
 const sideBar = document.querySelector("#sidebar");
 const sideBarUL = document.querySelector("#sidebar ul");
+const root = document.querySelector(":root");
 
 let options = {
     root: null,
@@ -13,14 +14,16 @@ const obsCallback = (entries) => {
     entries.forEach((entry) => {
         console.log(entry);
         if (!entry.isIntersecting) {
+            headerTrigger.classList.add("scrolled");
             headerNav.classList.add("scrolled");
-            headerTrigger.classList.add("scrolled")
             sideBar.classList.add("scrolled");
+            sideButton.classList.add("scrolled")
         }
         else {
-            headerNav.classList?.remove("scrolled");
             headerTrigger.classList?.remove("scrolled");
-            sideBar.classList?.remove("scrolled");
+            headerNav.classList.remove("scrolled");
+            sideBar.classList.remove("scrolled");
+            sideButton.classList.remove("scrolled");
         };
     });
 }
@@ -42,9 +45,11 @@ const toc = () => {
 }
 toc()
 
-const sideButton = document.querySelector("nav#sidebar button");
+const sideButton = document.querySelector("#sidebar-button");
 sideButton.addEventListener("click", (event) => {
     sideBar.classList.toggle("active")
     sideButton.classList.toggle("active")
+    sideButton.classList.toggle("arrow")
+    sideButton.classList.toggle("hamburger")
     console.log("button clicked")
 });

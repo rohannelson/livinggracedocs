@@ -75,6 +75,8 @@ div.scrolled {
 
 /*** SIDEBAR STYLES***/
 
+/*sidebar button*/
+
 #sidebar-button {
     width: 50px;
     height: 50px;
@@ -135,6 +137,7 @@ div.scrolled {
     left: 0px;
 }
 
+/*sidebar*/
 
 nav#sidebar {
     position: fixed;
@@ -162,12 +165,31 @@ nav#sidebar.active {
 
 nav#sidebar ul {
     padding: 0vw 1.5vw;
-    list-style: none;
     padding-bottom: 1.5vw;
     font-size: 1.6rem;
+    list-style: none;
 }
 
-nav#sidebar ul li,
+nav#sidebar ul li::before {
+    content: "‣";
+    font-size: 3rem;
+    line-height: 1.6rem;
+    vertical-align: -20%;
+    display: inline-block;
+    padding-right: 10px;
+    transition: 0.25s;
+}
+
+nav#sidebar ul li.toggled::before {
+    transform: rotate(90deg);
+    vertical-align: -50%;
+}
+
+nav#sidebar ul li {
+    padding: 0.25em 0;
+    color: #fff;
+}
+
 nav#sidebar ul a {
     color: #fff;
 }

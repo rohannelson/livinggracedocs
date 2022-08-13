@@ -41,3 +41,10 @@ const toc = () => {
     })
 }
 toc()
+
+const sideButton = document.querySelector("nav#sidebar button");
+sideButton.addEventListener("click", (event) => {
+    sideBar.classList.toggle("active")
+    sideButton.classList.toggle("active")
+    console.log("button clicked")
+});

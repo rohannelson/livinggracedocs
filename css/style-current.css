@@ -72,13 +72,26 @@ div.scrolled {
 
 /*** SIDEBAR STYLES***/
 
+nav#sidebar button {
+    width: 75px;
+}
+
+nav#sidebar.active {
+    left: min(-200px,-20%);
+}
+button.active {
+    position: fixed;
+    top: 150px;
+    left: 0px;
+}
+
 nav#sidebar {
     position: fixed;
     top: 150px;
     left: 0px;
     display: flex;
     flex-direction: column;
-    width: 20%;
+    width: max(20%,200px);
     flex-grow: 1;
     flex-shrink: 1;
     font-size: 1.6rem;

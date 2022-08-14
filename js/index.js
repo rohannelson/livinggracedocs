@@ -3,6 +3,7 @@ const headerTrigger = document.querySelector("#header-trigger");
 const sideBar = document.querySelector("#sidebar");
 const sideBarUL = document.querySelector("#sidebar ul");
 const root = document.querySelector(":root");
+const sideButton = document.querySelector("#sidebar-toggle");
 
 let options = {
     root: null,
@@ -36,17 +37,28 @@ headerObserver.observe(document.querySelector('#header-trigger'));
 
 const toc = () => {
     const headings = document.querySelectorAll("h1, h2, h3, h4")
-    let i = 0;
+    let x = 0;
+    let y = 0;
     headings.forEach(heading => {
-        i++
-        heading.insertAdjacentHTML("beforebegin", `<a id="${i}"></a>`)
-        sideBarUL.insertAdjacentHTML("beforeend", `<a href="#${i}"><li class="${heading.nodeName}">${heading.textContent}</li></a>`)
+        if (heading.nodeName === "H2") {
+            x++;
+            y = 0;
+        } else {
+            y++;
+        };
+        //You can't use . as punctuation in css selectors silly. It makes something a class... Also apparently queryselectors can't start with a digit? It seemed to work before?
+        if (x >= 1 && y === 1) {
+            let btn = `<button type="button" id='btn-${x}pt${y}' class="sidelist-toggle">‣</button>`;
+            let parentHeading = document.querySelector(`.a${x}pt0`);
+            parentHeading.insertAdjacentHTML("beforebegin", `${btn}`);
+        };
+        heading.insertAdjacentHTML("beforebegin", `<a id='a${x}pt${y}'></a>`);
+        sideBarUL.insertAdjacentHTML("beforeend", `<div class="btn-wrapper"><a href='#a${x}pt${y}' class='a${x}pt0'> <li class='${heading.nodeName}'>${heading.textContent}</li></a ></div > `);
     })
 }
 toc()
 
-const sideButton = document.querySelector("#sidebar-button");
-sideButton.addEventListener("click", (event) => {
+sideButton.addEventListener("click", () => {
     sideBar.classList.toggle("active")
     sideButton.classList.toggle("active")
     sideButton.classList.toggle("arrow")

@@ -77,7 +77,7 @@ div.scrolled {
 
 /*sidebar button*/
 
-#sidebar-button {
+#sidebar-toggle {
     width: 50px;
     height: 50px;
     position: fixed;
@@ -93,47 +93,47 @@ div.scrolled {
     align-items: center;
 }
 
-#sidebar-button.scrolled {
+#sidebar-toggle.scrolled {
     font-size: var(--scrolled-font-size);
 }
 
-#sidebar-button div {
+#sidebar-toggle div {
     background-color: #51534a;
     height: 5px;
     transition: .4s;
 }
 
-#sidebar-button.hamburger div {
+#sidebar-toggle.hamburger div {
     width: 35px;
     margin: 3px 0;
     border-radius: 10px;
 }
 
-#sidebar-button div.arrow {
+#sidebar-toggle div.arrow {
     height: 4px;
 }
 
-#sidebar-button.arrow div:nth-of-type(1) {
+#sidebar-toggle.arrow div:nth-of-type(1) {
     width: 19px;
     border-radius: 0 10px 10px 0;
     transform: rotate(-45deg);
     margin: 6px 20px 0 0;
 }
 
-#sidebar-button.arrow div:nth-of-type(2) {
+#sidebar-toggle.arrow div:nth-of-type(2) {
     width: 34px;
     margin: 2px 3px 2px 0;
     border-radius: 10px;
 }
 
-#sidebar-button.arrow div:nth-of-type(3) {
+#sidebar-toggle.arrow div:nth-of-type(3) {
     width: 19px;
     border-radius: 0 10px 10px 0;
     transform: rotate(45deg);
     margin: 0 20px 6px 0;
 }
 
-#sidebar-button.active {
+#sidebar-toggle.active {
     left: 0px;
 }
 
@@ -170,7 +170,11 @@ nav#sidebar ul {
     list-style: none;
 }
 
-nav#sidebar ul li::before {
+.btn-wrapper {
+    display: flex;
+}
+
+nav#sidebar .sidelist-toggle {
     content: "‣";
     font-size: 3rem;
     line-height: 1.6rem;
@@ -178,9 +182,12 @@ nav#sidebar ul li::before {
     display: inline-block;
     padding-right: 10px;
     transition: 0.25s;
+    background: none;
+    color: #fff;
+    border: none;
 }
 
-nav#sidebar ul li.toggled::before {
+nav#sidebar .sidelist-toggle.toggled {
     transform: rotate(90deg);
     vertical-align: -50%;
 }
@@ -357,7 +364,7 @@ td {
     }
 
     /*** MAIN STYLES ***/
-    #sidebar-button {
+    #sidebar-toggle {
         font-size: var(--unscrolled-font-size);
     }
 
@@ -404,11 +411,11 @@ td {
     }
 
     /*** MAIN STYLES ***/
-    #sidebar-button {
+    #sidebar-toggle {
         font-size: var(--unscrolled-font-size);
     }
 
-    #sidebar-button.scrolled {
+    #sidebar-toggle.scrolled {
         font-size: var(--scrolled-font-size);
     }
 

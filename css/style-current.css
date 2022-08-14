@@ -89,6 +89,8 @@ div.scrolled {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #faf9f5;
+    border: solid #51534a 1px;
 }
 
 #sidebar-button.scrolled {
@@ -142,6 +144,7 @@ nav#sidebar {
     top: var(--header-height);
     left: 0px;
     display: flex;
+    height: calc(100vh - var(--header-height));
     flex-direction: column;
     width: var(--sidebar-width);
     flex-grow: 1;
@@ -149,7 +152,7 @@ nav#sidebar {
     transition: 0.25s;
     background-color: #702082;
     border-top: #fff solid 1px;
-    padding-top: 0px;
+    padding-top: 12px;
 }
 
 nav#sidebar.scrolled {

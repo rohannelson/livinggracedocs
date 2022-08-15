@@ -48,12 +48,12 @@ const toc = () => {
         };
         //You can't use . as punctuation in css selectors silly. It makes something a class... Also apparently queryselectors can't start with a digit? It seemed to work before?
         if (x >= 1 && y === 1) {
-            let btn = `<button type="button" id='btn-${x}pt${y}' class="sidelist-toggle">‣</button>`;
-            let parentHeading = document.querySelector(`.a${x}pt0`);
+            let btn = `<button type="button" id='btn-${x}-${y}' class="sidelist-toggle">‣</button>`;
+            let parentHeading = document.querySelector(`.o${x}-0`);
             parentHeading.insertAdjacentHTML("beforebegin", `${btn}`);
         };
-        heading.insertAdjacentHTML("beforebegin", `<a id='a${x}pt${y}'></a>`);
-        sideBarUL.insertAdjacentHTML("beforeend", `<div class="btn-wrapper"><a href='#a${x}pt${y}' class='a${x}pt0'> <li class='${heading.nodeName}'>${heading.textContent}</li></a ></div > `);
+        heading.insertAdjacentHTML("beforebegin", `<a id='o${x}-${y}'></a>`);
+        sideBarUL.insertAdjacentHTML("beforeend", `<div class="btn-wrapper"><a href='#o${x}-${y}' class='o${x}-0'> <li class='${heading.nodeName}'>${heading.textContent}</li></a ></div > `);
     })
 }
 toc()
@@ -64,4 +64,11 @@ sideButton.addEventListener("click", () => {
     sideButton.classList.toggle("arrow")
     sideButton.classList.toggle("hamburger")
     console.log("button clicked")
+});
+
+const sideListToggles = document.querySelectorAll(".sidelist-toggle");
+sideListToggles.forEach((sideListToggle) => {
+    sideListToggle.addEventListener("click", (event) => {
+        event.currentTarget.classList.toggle("toggled");
+    })
 });

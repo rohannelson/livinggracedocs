@@ -86,7 +86,6 @@ div.scrolled {
     top: var(--header-height);
     transition: 0.25s;
     border-radius: 0 10px 10px 0;
-    border: white solid 1px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -167,7 +166,7 @@ nav#sidebar.active {
 }
 
 nav#sidebar ul {
-    padding: 0vw 1.5vw;
+    padding: 0 1vw 0 2vw;
     padding-bottom: 1.5vw;
     font-size: 1.6rem;
     list-style: none;
@@ -175,19 +174,22 @@ nav#sidebar ul {
 
 .btn-wrapper {
     display: flex;
+    position: relative;
 }
 
 nav#sidebar .sidelist-toggle {
     content: "‣";
     font-size: 3rem;
     line-height: 1.6rem;
-    vertical-align: -20%;
-    display: inline-block;
-    padding-right: 10px;
     transition: 0.25s;
+    width: 2.5rem;
+    height: 2.5rem;
     background: none;
     color: #fff;
     border: none;
+    position: absolute;
+    top: 0.2rem;
+    left: -2.7rem;
 }
 
 nav#sidebar .sidelist-toggle.toggled {

@@ -1,6 +1,7 @@
 const headerNav = document.querySelector("header");
 const headerTrigger = document.querySelector("#header-trigger");
 const sideBar = document.querySelector("#sidebar");
+const sideButtonWrapper = document.querySelector("#sidebar-toggle-wrapper");
 const sideButton = document.querySelector("#sidebar-toggle");
 
 /*Makes header contract when scroll down from top and expand when scroll back using intersection observer.
@@ -19,13 +20,13 @@ const obsCallback = (entries) => {
             headerTrigger.classList.add("scrolled");
             headerNav.classList.add("scrolled");
             sideBar.classList.add("scrolled");
-            sideButton.classList.add("scrolled")
+            sideButtonWrapper.classList.add("scrolled")
         }
         else {
             headerTrigger.classList?.remove("scrolled");
             headerNav.classList.remove("scrolled");
             sideBar.classList.remove("scrolled");
-            sideButton.classList.remove("scrolled");
+            sideButtonWrapper.classList.remove("scrolled");
         };
     });
 }
@@ -65,7 +66,7 @@ toc()
 
 sideButton.addEventListener("click", () => {
     sideBar.classList.toggle("active")
-    sideButton.classList.toggle("active")
+    sideButtonWrapper.classList.toggle("active")
     sideButton.classList.toggle("arrow")
     sideButton.classList.toggle("hamburger")
 });

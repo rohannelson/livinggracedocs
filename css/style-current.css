@@ -157,6 +157,7 @@ nav#sidebar {
     background-color: #702082;
     border-top: #fff solid 1px;
     padding-top: 12px;
+    overflow-y: scroll;
 }
 
 nav#sidebar.scrolled {

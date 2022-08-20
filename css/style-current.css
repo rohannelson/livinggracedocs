@@ -102,6 +102,8 @@ div.scrolled {
     background-color: #51534a;
     height: 5px;
     transition: .4s;
+    flex-shrink: 0;
+    flex-grow: 0;
 }
 
 #sidebar-toggle.hamburger div {
@@ -166,7 +168,7 @@ nav#sidebar.active {
 }
 
 nav#sidebar ul {
-    padding: 0 1vw 0 2vw;
+    padding: 0 1vw 0 30px;
     padding-bottom: 1.5vw;
     font-size: 1.6rem;
     list-style: none;
@@ -190,6 +192,10 @@ nav#sidebar .sidelist-toggle {
     position: absolute;
     top: 0.2rem;
     left: -2.7rem;
+}
+
+.hidden {
+    display: none;
 }
 
 nav#sidebar .sidelist-toggle.toggled {

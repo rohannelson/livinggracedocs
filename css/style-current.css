@@ -160,6 +160,7 @@ nav#sidebar {
     transition: 0.25s;
     background-color: #702082;
     padding-top: 12px;
+    overflow-y: scroll;
 }
 
 nav#sidebar.scrolled {

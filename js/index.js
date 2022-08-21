@@ -3,6 +3,7 @@ const headerTrigger = document.querySelector("#header-trigger");
 const sideBar = document.querySelector("#sidebar");
 const sideButtonWrapper = document.querySelector("#sidebar-toggle-wrapper");
 const sideButton = document.querySelector("#sidebar-toggle");
+const sideBarUL = document.querySelector("#sidebar ul");
 
 /*Makes header contract when scroll down from top and expand when scroll back using intersection observer.
 The target must be a descendant of the root element - for some reason the header doesn't seem to count as the descendant of body (position: fixed doesn't get observed or something)
@@ -34,12 +35,10 @@ const obsCallback = (entries) => {
 headerObserver = new IntersectionObserver(obsCallback, options);
 headerObserver.observe(document.querySelector('#header-trigger'));
 
-
 //Automatically generates dismissable table of contents based off headings with button for dismissing and buttons for collapsing lists generated off subheadings
 
 const toc = () => {
     const headings = document.querySelectorAll("h1, h2, h3, h4")
-    const sideBarUL = document.querySelector("#sidebar ul");
     let x = 0;
     let y = 0;
     headings.forEach(heading => {
@@ -65,10 +64,10 @@ toc()
 //Event listener and styling for button that toggles sidebar
 
 sideButton.addEventListener("click", () => {
-    sideBar.classList.toggle("active")
-    sideButtonWrapper.classList.toggle("active")
-    sideButton.classList.toggle("arrow")
-    sideButton.classList.toggle("hamburger")
+    sideBar.classList.toggle("active");
+    sideButtonWrapper.classList.toggle("active");
+    sideButton.classList.toggle("arrow");
+    sideButton.classList.toggle("hamburger");
 });
 
 //Identifies lists from subheadings and event listener for toggle lists.
@@ -83,3 +82,28 @@ sideListToggles.forEach((sideListToggle) => {
         toggleTierSet.forEach(item => item.classList.toggle("hidden"));
     })
 });
+
+//tabindex observer
+let tabObsOptions = {
+    root: null,
+    rootMargin: '100% 100% 100% 0px',
+    threshold: 1
+};
+
+const sidebaritems = document.querySelectorAll('#sidebar ul div *')
+console.log(sidebaritems)
+
+const tabObsCallback = (entries) => {
+    entries.forEach((entry) => {
+        if (!entry.isIntersecting) {
+            console.log(entry)
+            sidebaritems.forEach((item) => item.setAttribute("tabindex", "-1"));
+        }
+        else {
+            sidebaritems.forEach((item) => item.removeAttribute("tabindex"));
+        }
+    })
+}
+
+tabObserver = new IntersectionObserver(tabObsCallback, tabObsOptions);
+tabObserver.observe(sideBar);
